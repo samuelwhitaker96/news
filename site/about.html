@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>关于 · 每日新闻简报</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1>关于</h1>
+  <p class="subtitle">本项目说明</p>
+</header>
+<nav>
+  <a href="index.html">最新</a>
+  <a href="archive.html">历史归档</a>
+  <a href="about.html">关于</a>
+</nav>
+<main>
+<h2>这是什么？</h2>
+<p>一个每天自动从国外新闻网站抓取要闻，用 AI 整理成中文简报的网站。</p>
+
+<h2>数据来源</h2>
+<ul>
+  <li><strong>国际</strong>：BBC、Reuters、纽约时报</li>
+  <li><strong>科技</strong>：TechCrunch、The Verge</li>
+</ul>
+<p>通过 RSS 订阅获取，无人工干预。</p>
+
+<h2>整理流程</h2>
+<ol>
+  <li>每天定时抓取所有源最近 24 小时的新闻</li>
+  <li>用 DeepSeek AI 翻译成中文 + 提炼核心</li>
+  <li>按主题分类，生成简报</li>
+  <li>网站自动更新</li>
+</ol>
+
+<h2>更新频率</h2>
+<p>每天 UTC 0 点（北京时间早上 8 点）自动更新。</p>
+
+<h2>技术栈</h2>
+<ul>
+  <li>抓取：Python + feedparser</li>
+  <li>AI：DeepSeek Chat API</li>
+  <li>展示：纯 HTML + CSS</li>
+  <li>定时：GitHub Actions</li>
+  <li>部署：GitHub Pages</li>
+</ul>
+</main>
+<footer>
+  <p>由 DeepSeek 自动整理</p>
+</footer>
+</body>
+</html>
