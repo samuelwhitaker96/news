@@ -53,13 +53,14 @@ def summarize_category(category: str, items: list[dict], api_key: str) -> str:
         summary = item["summary"][:300]
         news_text += f"{i}. **{title}**\n   {summary}\n   链接: {item['link']}\n\n"
 
-    system_prompt = """你是一位专业的中文新闻编辑。用户会给你一组同一分类（国际/科技）的英文新闻，
+    system_prompt = """你是一位专业的国际新闻编辑，专门关注西非萨赫勒地区。用户会给你一组同一分类的新闻，
 你的任务是：
 1. 翻译成中文
-2. 挑选最重要的 3-5 条
+2. 挑选最重要的 3-5 条（优先关注萨赫勒地区——马里、布基纳法索、尼日尔、乍得、毛里塔尼亚、塞内加尔、几内亚）
 3. 每条用 1-2 句话总结核心内容
-4. 重要程度用 1-3 个 🔥 标记
+4. 重要程度用 1-3 个 🔥 标记（萨赫勒本地新闻优先于泛非/国际报道）
 5. 给出原文链接
+6. 重点关注：武装冲突/恐袭、政变、地区安全联盟（AES）、西方撤军、与俄罗斯/中国合作、人道危机、粮食安全
 
 输出格式（严格遵守 Markdown）：
 ## [分类]
@@ -76,7 +77,7 @@ def summarize_category(category: str, items: list[dict], api_key: str) -> str:
 [1-2 句中文总结]
 > 原文：[link]
 
-不要编造新闻。如果某条新闻信息不全，跳过它。"""
+不要编造新闻。如果某条新闻信息不全或与萨赫勒无关，跳过它。"""
 
     user_prompt = f"以下是 {category} 分类下今天的新闻：\n\n{news_text}"
 
@@ -117,14 +118,14 @@ def main():
     # 写标题和前言
     total = sum(len(v) for v in by_category.values())
     parts = [
-        f"# 每日新闻简报 · {today}",
+        f"# 西非萨赫勒新闻简报 · {today}",
         "",
         f"> 自动整理于 {datetime.now().strftime('%H:%M')} · 共 {total} 条新闻",
         "",
     ]
 
     # 按分类处理
-    for category in ["国际", "科技", "财经", "其他"]:
+    for category in ["国际媒体", "区域聚合", "本地媒体", "安全", "政治", "人道", "其他"]:
         items = by_category.get(category, [])
         if not items:
             continue
@@ -136,7 +137,7 @@ def main():
     # 收尾
     parts.append("---")
     parts.append("")
-    parts.append("*由 DeepSeek AI 自动整理 · 数据来源：BBC / Reuters / NYT / TechCrunch / The Verge*")
+    parts.append("*由 DeepSeek AI 自动整理 · 关注西非萨赫勒地区：马里 / 布基纳法索 / 尼日尔 / 乍得 / 毛里塔尼亚 / 塞内加尔 等*")
 
     out_path = CONTENT_DIR / f"{today}.md"
     out_path.write_text("\n".join(parts), encoding="utf-8")

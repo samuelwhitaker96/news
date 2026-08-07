@@ -17,13 +17,13 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>每日新闻简报</title>
+<title>西非萨赫勒新闻简报</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <header>
-  <h1>每日新闻简报</h1>
-  <p class="subtitle">国际 · 科技 · AI 整理</p>
+  <h1>西非萨赫勒新闻简报</h1>
+  <p class="subtitle">萨赫勒地区 · 安全 · 政治 · 人道 · AI 整理</p>
 </header>
 <nav>
   <a href="index.html">最新</a>
@@ -34,7 +34,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 {{ content | safe }}
 </main>
 <footer>
-  <p>由 DeepSeek 自动整理 · 数据来源：BBC / Reuters / NYT / TechCrunch / The Verge</p>
+  <p>由 DeepSeek 自动整理 · 数据来源：France 24 / Africanews / AllAfrica / DW / Al Jazeera / Sahel Express / Mali Actu</p>
   <p>最后更新：{{ updated }}</p>
 </footer>
 </body>
@@ -46,7 +46,7 @@ ARCHIVE_TEMPLATE = """<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>归档 · 每日新闻简报</title>
+<title>归档 · 西非萨赫勒新闻简报</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -78,12 +78,12 @@ BRIEFING_TEMPLATE = """<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ date }} · 每日新闻简报</title>
+<title>{{ date }} · 西非萨赫勒新闻简报</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
 <header>
-  <h1>每日新闻简报</h1>
+  <h1>西非萨赫勒新闻简报</h1>
   <p class="subtitle">{{ date }}</p>
 </header>
 <nav>
@@ -107,7 +107,7 @@ ABOUT_TEMPLATE = """<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>关于 · 每日新闻简报</title>
+<title>关于 · 西非萨赫勒新闻简报</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -122,20 +122,49 @@ ABOUT_TEMPLATE = """<!DOCTYPE html>
 </nav>
 <main>
 <h2>这是什么？</h2>
-<p>一个每天自动从国外新闻网站抓取要闻，用 AI 整理成中文简报的网站。</p>
+<p>一个每天自动从萨赫勒地区（西非与北非过渡地带）的新闻媒体抓取要闻，用 AI 整理成中文简报的网站。</p>
+
+<h2>覆盖地区</h2>
+<p>主要包括：</p>
+<ul>
+  <li><strong>核心萨赫勒</strong>：马里、布基纳法索、尼日尔（已退出西共体的三国联盟）</li>
+  <li><strong>萨赫勒边缘</strong>：乍得、毛里塔尼亚、塞内加尔、几内亚、冈比亚</li>
+  <li><strong>周边关注</strong>：科特迪瓦、贝宁、尼日利亚北部、苏丹</li>
+</ul>
 
 <h2>数据来源</h2>
+<h3>国际媒体（综合视角）</h3>
 <ul>
-  <li><strong>国际</strong>：BBC、Reuters、纽约时报</li>
-  <li><strong>科技</strong>：TechCrunch、The Verge</li>
+  <li>France 24（法语 + 英语非洲频道）</li>
+  <li>Africanews（泛非英语新闻）</li>
+  <li>Al Jazeera（半岛电视台）</li>
+  <li>DW 德国之声非洲频道</li>
 </ul>
-<p>通过 RSS 订阅获取，无人工干预。</p>
+
+<h3>区域聚合</h3>
+<ul>
+  <li>AllAfrica 西非（90+ 非洲媒体聚合）</li>
+  <li>Sahel Express（萨赫勒专线）</li>
+</ul>
+
+<h3>本地媒体</h3>
+<ul>
+  <li>Mali Actu（马里本地法语新闻）</li>
+</ul>
+
+<h2>关注议题</h2>
+<ul>
+  <li><strong>安全</strong>：圣战武装袭击、军事政变、地区安全联盟（AES）</li>
+  <li><strong>政治</strong>：三国军政府动向、与法国/西方关系、退出西共体</li>
+  <li><strong>人道</strong>：流离失所、粮食危机、国际援助</li>
+  <li><strong>经济</strong>：制裁影响、跨境贸易、新兴合作（俄罗斯、中国）</li>
+</ul>
 
 <h2>整理流程</h2>
 <ol>
   <li>每天定时抓取所有源最近 24 小时的新闻</li>
   <li>用 DeepSeek AI 翻译成中文 + 提炼核心</li>
-  <li>按主题分类，生成简报</li>
+  <li>按议题分类，生成简报</li>
   <li>网站自动更新</li>
 </ol>
 

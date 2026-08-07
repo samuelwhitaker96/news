@@ -1,49 +1,53 @@
 {
-  "_说明": "编辑这个文件加/删新闻源。改完在 GitHub Desktop 点 Commit → Push 即可，下次定时任务自动生效。",
-  "_格式": "每个分类下面是一个列表，每项要有 name（来源名）和 url（RSS 地址），可选 description（描述）和 max_items（最多取多少条）",
+  "_说明": "萨赫勒地区新闻源配置。覆盖马里、布基纳法索、尼日尔、乍得、毛里塔尼亚、塞内加尔及周边地区。",
+  "_覆盖国家": "马里、布基纳法索、尼日尔、乍得、毛里塔尼亚、塞内加尔、几内亚、冈比亚、科特迪瓦、贝宁、尼日利亚北部",
 
-  "国际": [
+  "国际媒体": [
     {
-      "name": "BBC World",
-      "url": "http://feeds.bbci.co.uk/news/world/rss.xml",
-      "description": "BBC 国际新闻"
+      "name": "France 24 法语非洲",
+      "url": "https://www.france24.com/fr/afrique/rss",
+      "description": "法国 24 小时法语非洲频道"
     },
     {
-      "name": "NYT World",
-      "url": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
-      "description": "纽约时报国际版"
+      "name": "France 24 英语非洲",
+      "url": "https://www.france24.com/en/africa/rss",
+      "description": "法国 24 小时英语非洲频道"
     },
     {
-      "name": "NYT Asia Pacific",
-      "url": "https://rss.nytimes.com/services/xml/rss/nyt/AsiaPacific",
-      "description": "纽约时报亚太版"
+      "name": "Africanews",
+      "url": "https://www.africanews.com/feed/",
+      "description": "泛非新闻媒体（英语）"
+    },
+    {
+      "name": "Al Jazeera",
+      "url": "https://www.aljazeera.com/xml/rss/all.xml",
+      "description": "半岛电视台（综合国际新闻）"
+    },
+    {
+      "name": "DW 德国之声非洲",
+      "url": "https://rss.dw.com/rdf/rss-en-africa",
+      "description": "德国之声非洲频道（英语）"
     }
   ],
 
-  "科技": [
+  "区域聚合": [
     {
-      "name": "TechCrunch",
-      "url": "https://techcrunch.com/feed/",
-      "description": "美国科技媒体"
+      "name": "AllAfrica 西非",
+      "url": "https://allafrica.com/tools/headlines/rdf/westafrica/headlines.rdf",
+      "description": "AllAfrica 西非聚合（90+ 非洲媒体）"
     },
     {
-      "name": "The Verge",
-      "url": "https://www.theverge.com/rss/index.xml",
-      "description": "科技/消费电子"
-    },
-    {
-      "name": "Hacker News",
-      "url": "https://hnrss.org/frontpage",
-      "description": "技术社区热门",
-      "max_items": 10
+      "name": "Sahel Express",
+      "url": "https://sahel-express.com/feed/",
+      "description": "萨赫勒地区英语新闻专线"
     }
   ],
 
-  "财经": [
+  "本地媒体": [
     {
-      "name": "Financial Times",
-      "url": "https://www.ft.com/rss/home",
-      "description": "FT 主页"
+      "name": "Mali Actu",
+      "url": "https://www.maliactu.net/feed/",
+      "description": "马里本地法语新闻"
     }
   ]
 }

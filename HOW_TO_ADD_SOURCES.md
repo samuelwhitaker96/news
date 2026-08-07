@@ -1,12 +1,8 @@
-# 怎么加新新闻源
+# 怎么加新新闻源（萨赫勒版）
 
-## 你只需要改一个文件
+## 改 `sources.json` 就行
 
-**`sources.json`** —— 这个文件管理所有新闻源。
-
----
-
-## 文件结构（很简单）
+文件结构：
 
 ```json
 {
@@ -20,130 +16,68 @@
 }
 ```
 
-每个**分类**是一个标题（比如"国际"、"科技"、"财经"），下面是一个**列表**，每项是一个网站。
+**已配置的分类**：
+- `国际媒体`：France 24 / Africanews / Al Jazeera / DW
+- `区域聚合`：AllAfrica / Sahel Express
+- `本地媒体`：Mali Actu
+
+可以直接加新分类，比如 `乍得媒体` / `布基纳法索媒体`。
 
 ---
 
-## 怎么加
+## 推荐添加的萨赫勒源
 
-**加一个网站**：在某个分类下加一项，比如：
+### 萨赫勒综合性
+- AllAfrica Sahel 频道：`https://allafrica.com/tools/headlines/rdf/sahel/headlines.rdf`（可能需要试）
+- ISS Africa（智库分析）：`https://issafrica.org/feed`
+- Crisis Group Sahel：`https://www.crisisgroup.org/rss/region/sahel.xml`
 
-```json
-{
-  "国际": [
-    {"name": "BBC World", "url": "http://feeds.bbci.co.uk/news/world/rss.xml"},
-    {"name": "NYT World", "url": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml"}
-  ]
-}
-```
+### 各国本地源
+| 国家 | 推荐源 |
+|---|---|
+| 马里 | Mali Actu, Maliweb, Studio Tamani |
+| 布基纳法索 | Lefaso.net, Burkina24 |
+| 尼日尔 | Niamey Info, Tamtaminfo, ActuNiger |
+| 乍得 | Alwihda Info, Tchadinfos |
+| 毛里塔尼亚 | Sahara Media, Cridem |
+| 塞内加尔 | Seneweb, Le Soleil |
+| 几内亚 | Guinéenews, Mosaiqueguinee |
 
-**加一个分类**：直接写一个新标题：
-
-```json
-{
-  "国际": [...],
-  "科技": [...],
-  "财经": [...],
-  "体育": [
-    {"name": "ESPN", "url": "https://..."}
-  ]
-}
-```
-
-**删一个网站**：直接把那行删了
-
-**改抓取数量**：加 `"max_items": 数字`（默认 8）
-
-```json
-{"name": "Hacker News", "url": "https://hnrss.org/frontpage", "max_items": 15}
-```
+**注意**：很多本地网站没有 RSS。可以去网站底部找 📡 图标，或者在谷歌搜「`网站名 RSS`」。
 
 ---
 
-## 怎么找 RSS 地址？
+## 怎么找 RSS 地址
 
 **方法 1：直接搜**
-谷歌搜：`网站名 + RSS`，比如 `Bloomberg RSS feed`
+谷歌搜：`网站名 + RSS`，比如 `Burkina24 RSS feed`
 
-**方法 2：看网站底部**
-很多新闻网站底部有橙色 📡 RSS 图标，右键 → 复制链接
+**方法 2：用 rss.app**
+打开 https://rss.app/ ，输入网站 URL，自动找
 
-**方法 3：用这个神器网站**
-打开 https://rss.app/ ，输入新闻网站 URL，自动帮你找
+**方法 3：找网站底部**
+很多新闻网站底部有橙色 📡 图标
 
 ---
 
-## 常用 RSS 地址（直接复制）
+## 改完生效
 
-### 国际综合
-- BBC World: `http://feeds.bbci.co.uk/news/world/rss.xml`
-- BBC Top Stories: `http://feeds.bbci.co.uk/news/rss.xml`
-- NYT World: `https://rss.nytimes.com/services/xml/rss/nyt/World.xml`
-- Guardian World: `https://www.theguardian.com/world/rss`
-- Reuters: `https://feeds.reuters.com/Reuters/worldNews`
-
-### 科技
-- TechCrunch: `https://techcrunch.com/feed/`
-- The Verge: `https://www.theverge.com/rss/index.xml`
-- Hacker News: `https://hnrss.org/frontpage`
-- Ars Technica: `https://feeds.arstechnica.com/arstechnica/index`
-- Wired: `https://www.wired.com/feed/rss`
-- Engadget: `https://www.engadget.com/rss.xml`
-
-### 财经
-- FT Home: `https://www.ft.com/rss/home`
-- Bloomberg Markets: `https://feeds.bloomberg.com/markets/news.rss`
-- WSJ Markets: `https://feeds.a.dj.com/rss/RSSMarkets.xml`
-- Investing.com: `https://www.investing.com/rss/news.rss`
-
-### 体育
-- ESPN: `https://www.espn.com/espn/rss/news`
-- BBC Sport: `http://feeds.bbci.co.uk/sport/rss.xml`
-- The Athletic: `https://theathletic.com/rss/feed.xml`
-
-### AI / ML
-- MIT Tech Review AI: `https://www.technologyreview.com/topic/artificial-intelligence/feed`
-- OpenAI Blog: `https://openai.com/blog/rss.xml`
-- Google DeepMind: `https://deepmind.google/blog/rss.xml`
-
-### 加密货币
-- CoinDesk: `https://www.coindesk.com/arc/outboundfeeds/rss/`
-- Cointelegraph: `https://cointelegraph.com/rss`
+1. 保存 `sources.json`
+2. 打开 GitHub Desktop
+3. 左下角 Summary 填 `update sources`（随便写）
+4. 点 **「Commit to main」**
+5. 右上角 **「Push origin」**
+6. 等 2-3 分钟，网站自动更新
 
 ---
 
 ## ⚠️ 注意事项
 
-1. **JSON 格式**很严格：
-   - 每行末尾的逗号**不能少**（最后一行除外）
-   - 字符串必须用**英文双引号** `"`，不能用单引号
-   - 大括号 `{ }` 和方括号 `[ ]` 必须成对
-
-2. **改错语法会报错**：
-   - 打开 https://www.json.cn/ 把内容粘进去，能帮你检查格式
-
-3. **改完生效步骤**：
-   1. 保存 sources.json
-   2. 打开 GitHub Desktop
-   3. 左侧会显示改动
-   4. 底部 Summary 填 `update sources`（随便写）
-   5. 点 **「Commit to main」**
-   6. 右上角点 **「Push origin」**
-   7. 等 2-3 分钟，网站自动更新
+- JSON 格式严格：双引号、逗号不能错
+- 改完可以用 https://www.json.cn/ 验证格式
+- 改坏了删掉对应大括号/方括号的一段就行
+- 加太多源可能让 AI 总结超 token 上限，建议总数 ≤ 20
 
 ---
 
-## 改完想测试
-
-可以在 PowerShell 跑：
-
-```powershell
-cd "C:\Users\green\WorkBuddy AI\2026-08-07-09-47-11\news-briefing"
-python scripts\fetch_rss.py
-```
-
-会立刻抓取并显示结果，看看新加的源有没有东西。
-
----
-
-**遇到问题截给我**，我帮你看。
+**遇到问题截给我，我帮你看。**
