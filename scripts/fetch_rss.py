@@ -92,6 +92,25 @@ def main():
             max_items = feed.get("max_items", DEFAULT_MAX_PER_SOURCE)
             by_category[category].extend(fetch_source(name, url, cutoff, max_items))
 
+    # 跨所有源去重：相同标题前缀（去标点/空格后）只保留第一条
+    seen_keys: set[str] = set()
+    dedup_total = 0
+    for category in by_category:
+        deduped: list[dict] = []
+        for it in by_category[category]:
+            key = re.sub(r"[\s\W_]+", "", it["title"].lower())[:60]
+            if not key:
+                continue
+            if key in seen_keys:
+                dedup_total += 1
+                continue
+            seen_keys.add(key)
+            deduped.append(it)
+        by_category[category] = deduped
+
+    if dedup_total:
+        print(f"\n跨源去重：移除 {dedup_total} 条重复新闻（保留较早出现的源）")
+
     out_dir = Path(__file__).parent.parent / "content"
     out_dir.mkdir(parents=True, exist_ok=True)
     today = now.strftime("%Y-%m-%d")

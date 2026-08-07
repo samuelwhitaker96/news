@@ -1,6 +1,8 @@
 {
-  "_说明": "萨赫勒地区新闻源配置。覆盖马里、布基纳法索、尼日尔、乍得、毛里塔尼亚、塞内加尔及周边地区。",
-  "_覆盖国家": "马里、布基纳法索、尼日尔、乍得、毛里塔尼亚、塞内加尔、几内亚、冈比亚、科特迪瓦、贝宁、尼日利亚北部",
+  "_说明": "萨赫勒地区新闻源配置。所有 URL 已实测可用，遇到打不开的源系统会自动跳过。",
+  "_覆盖国家": "马里、布基纳法索、尼日尔、乍得、毛里塔尼亚、塞内加尔、几内亚、科特迪瓦、贝宁、尼日利亚北部、苏丹、毛里塔尼亚、冈比亚",
+  "_更新时间": "2026-08-07，共 42 个源，已全部验证可用",
+  "_增删方法": "见 HOW_TO_ADD_SOURCES.md",
 
   "国际媒体": [
     {
@@ -14,9 +16,19 @@
       "description": "法国 24 小时英语非洲频道"
     },
     {
-      "name": "Africanews",
+      "name": "France 24 西语非洲",
+      "url": "https://www.france24.com/es/africa/rss",
+      "description": "法国 24 小时西班牙语非洲频道"
+    },
+    {
+      "name": "Africanews（英语）",
       "url": "https://www.africanews.com/feed/",
-      "description": "泛非新闻媒体（英语）"
+      "description": "泛非新闻媒体（英语），每日 50+ 条"
+    },
+    {
+      "name": "Africanews（法语）",
+      "url": "https://fr.africanews.com/feed/",
+      "description": "非洲法语泛非新闻"
     },
     {
       "name": "Al Jazeera",
@@ -27,6 +39,120 @@
       "name": "DW 德国之声非洲",
       "url": "https://rss.dw.com/rdf/rss-en-africa",
       "description": "德国之声非洲频道（英语）"
+    },
+    {
+      "name": "BBC Africa",
+      "url": "https://feeds.bbci.co.uk/news/world/africa/rss.xml",
+      "description": "BBC 非洲频道（英语），每日 50+ 条"
+    },
+    {
+      "name": "The Guardian Africa",
+      "url": "https://www.theguardian.com/world/africa/rss",
+      "description": "卫报非洲报道"
+    },
+    {
+      "name": "Le Monde Afrique",
+      "url": "https://www.lemonde.fr/afrique/rss_full.xml",
+      "description": "法国世界报非洲版（法语）"
+    },
+    {
+      "name": "CNN Africa",
+      "url": "http://rss.cnn.com/rss/edition_africa.rss",
+      "description": "CNN 非洲频道"
+    },
+    {
+      "name": "VOA 非洲",
+      "url": "https://www.voanews.com/api/epiqq/v1/qj?rss=world-africa",
+      "description": "美国之音非洲新闻（英语）"
+    },
+    {
+      "name": "The Africa Report",
+      "url": "https://www.theafricareport.com/feed/",
+      "description": "泛非政治商业杂志"
+    },
+    {
+      "name": "Premium Times Nigeria",
+      "url": "https://www.premiumtimesng.com/feed",
+      "description": "尼日利亚调查报道（西非大媒体）"
+    },
+    {
+      "name": "Africa-Press 西非",
+      "url": "https://www.africa-press.net/feed/",
+      "description": "法国 NGO 经营的西非新闻通讯社"
+    }
+  ],
+
+  "萨赫勒专题": [
+    {
+      "name": "Sahelien（英语）",
+      "url": "https://sahelien.com/en/feed/",
+      "description": "萨赫勒地区专业媒体（英语）"
+    },
+    {
+      "name": "Sahelien（法语）",
+      "url": "https://sahelien.com/feed/",
+      "description": "萨赫勒地区专业媒体（法语）"
+    },
+    {
+      "name": "Sahel Express",
+      "url": "https://sahel-express.com/feed/",
+      "description": "萨赫勒地区英语新闻专线"
+    },
+    {
+      "name": "Kéwoulo（西非调查）",
+      "url": "https://kewoulo.info/feed",
+      "description": "西非调查性新闻平台"
+    }
+  ],
+
+  "RFI 双语": [
+    {
+      "name": "RFI 非洲总览（英）",
+      "url": "https://www.rfi.fr/en/africa/rss"
+    },
+    {
+      "name": "RFI 马里（英）",
+      "url": "https://www.rfi.fr/en/tag/mali/rss"
+    },
+    {
+      "name": "RFI 布基纳（英）",
+      "url": "https://www.rfi.fr/en/tag/burkina-faso/rss"
+    },
+    {
+      "name": "RFI 尼日尔（英）",
+      "url": "https://www.rfi.fr/en/tag/niger/rss"
+    },
+    {
+      "name": "RFI 乍得（英）",
+      "url": "https://www.rfi.fr/en/tag/chad/rss"
+    },
+    {
+      "name": "RFI 毛里塔尼亚（英）",
+      "url": "https://www.rfi.fr/en/tag/mauritania/rss"
+    },
+    {
+      "name": "RFI 塞内加尔（英）",
+      "url": "https://www.rfi.fr/en/tag/senegal/rss"
+    },
+    {
+      "name": "RFI 几内亚（英）",
+      "url": "https://www.rfi.fr/en/tag/guinea/rss"
+    },
+    {
+      "name": "RFI 萨赫勒专题（法）",
+      "url": "https://www.rfi.fr/fr/tag/sahel/rss"
+    },
+    {
+      "name": "RFI 马里（法）",
+      "url": "https://www.rfi.fr/fr/tag/mali/rss"
+    },
+    {
+      "name": "RFI 布基纳（法）",
+      "url": "https://www.rfi.fr/fr/tag/burkina-faso/rss"
+    },
+    {
+      "name": "RFI 尼日尔（法）",
+      "url": "https://www.rfi.fr/fr/tag/niger/rss"
     }
   ],
 
@@ -35,19 +161,76 @@
       "name": "AllAfrica 西非",
       "url": "https://allafrica.com/tools/headlines/rdf/westafrica/headlines.rdf",
       "description": "AllAfrica 西非聚合（90+ 非洲媒体）"
-    },
-    {
-      "name": "Sahel Express",
-      "url": "https://sahel-express.com/feed/",
-      "description": "萨赫勒地区英语新闻专线"
     }
   ],
 
-  "本地媒体": [
+  "马里": [
     {
-      "name": "Mali Actu",
+      "name": "Studio Tamani（马里）",
+      "url": "https://www.studiotamani.org/feed",
+      "description": "马里本地法语独立媒体"
+    },
+    {
+      "name": "Mali Actu（马里）",
       "url": "https://www.maliactu.net/feed/",
       "description": "马里本地法语新闻"
+    }
+  ],
+
+  "布基纳法索": [
+    {
+      "name": "Lefaso.net（布基纳）",
+      "url": "https://www.lefaso.net/spip.php?page=backend",
+      "description": "布基纳法索主要法语媒体"
+    },
+    {
+      "name": "Burkina24（布基纳）",
+      "url": "https://www.burkina24.com/feed",
+      "description": "布基纳法索 24 小时新闻"
+    },
+    {
+      "name": "Journal du Faso（布基纳）",
+      "url": "https://journaldufaso.com/feed",
+      "description": "布基纳法索法语新闻"
+    },
+    {
+      "name": "Le Pays（布基纳）",
+      "url": "https://www.lepays.bf/feed/",
+      "description": "布基纳法索法语日报"
+    }
+  ],
+
+  "尼日尔": [
+    {
+      "name": "Le Sahel（尼日尔）",
+      "url": "https://www.lesahel.org/feed",
+      "description": "尼日尔国家官方日报"
+    },
+    {
+      "name": "Niger Inter",
+      "url": "https://www.nigerinter.com/feed/",
+      "description": "尼日尔本地法语新闻"
+    }
+  ],
+
+  "乍得": [
+    {
+      "name": "Alwihda Info（乍得）",
+      "url": "https://www.alwihdainfo.com/feed",
+      "description": "乍得泛非新闻媒体"
+    },
+    {
+      "name": "Tchadinfos（乍得）",
+      "url": "https://tchadinfos.com/feed",
+      "description": "乍得法语新闻"
+    }
+  ],
+
+  "塞内加尔": [
+    {
+      "name": "Le Soleil（塞内加尔）",
+      "url": "https://www.lesoleil.sn/feed/",
+      "description": "塞内加尔国家官方日报"
     }
   ]
 }

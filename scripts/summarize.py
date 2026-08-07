@@ -113,10 +113,10 @@ def main():
     raw = json.loads(raw_path.read_text(encoding="utf-8"))
     by_category = raw.get("by_category", {})
 
-    print(f"Summarizing {sum(len(v) for v in by_category.values())} items...")
+    total = sum(len(v) for v in by_category.values())
+    print(f"Summarizing {total} items in {len(by_category)} categories...")
 
     # 写标题和前言
-    total = sum(len(v) for v in by_category.values())
     parts = [
         f"# 西非萨赫勒新闻简报 · {today}",
         "",
@@ -124,9 +124,8 @@ def main():
         "",
     ]
 
-    # 按分类处理
-    for category in ["国际媒体", "区域聚合", "本地媒体", "安全", "政治", "人道", "其他"]:
-        items = by_category.get(category, [])
+    # 按分类处理：遍历 sources.json 里的实际分类顺序，缺的跳过
+    for category, items in by_category.items():
         if not items:
             continue
         print(f"  [{category}] {len(items)} items")

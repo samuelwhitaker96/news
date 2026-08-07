@@ -133,24 +133,48 @@ ABOUT_TEMPLATE = """<!DOCTYPE html>
 </ul>
 
 <h2>数据来源</h2>
-<h3>国际媒体（综合视角）</h3>
+<p>当前共聚合 <strong>42 个新闻源</strong>（详见 <code>sources.json</code>），分为以下几类：</p>
+
+<h3>国际媒体（15 个）</h3>
 <ul>
-  <li>France 24（法语 + 英语非洲频道）</li>
-  <li>Africanews（泛非英语新闻）</li>
-  <li>Al Jazeera（半岛电视台）</li>
-  <li>DW 德国之声非洲频道</li>
+  <li>France 24（法 / 英 / 西三语非洲频道）</li>
+  <li>Africanews（英语 + 法语）</li>
+  <li>Al Jazeera · DW 德国之声 · BBC Africa · The Guardian Africa</li>
+  <li>Le Monde Afrique（法） · CNN Africa · VOA 非洲</li>
+  <li>The Africa Report · Premium Times Nigeria · Africa-Press 西非</li>
 </ul>
 
-<h3>区域聚合</h3>
+<h3>萨赫勒专题媒体（4 个）</h3>
 <ul>
-  <li>AllAfrica 西非（90+ 非洲媒体聚合）</li>
-  <li>Sahel Express（萨赫勒专线）</li>
+  <li>Sahelien（法 / 英双版） · Sahel Express · Kéwoulo（西非调查）</li>
 </ul>
 
-<h3>本地媒体</h3>
+<h3>RFI 双语频道（12 个）</h3>
 <ul>
-  <li>Mali Actu（马里本地法语新闻）</li>
+  <li>RFI 非洲总览 · 马里 · 布基纳法索 · 尼日尔 · 乍得 · 毛里塔尼亚 · 塞内加尔 · 几内亚（含英 / 法双语版本）</li>
 </ul>
+
+<h3>区域聚合 + 各国本地媒体（11 个）</h3>
+<ul>
+  <li>AllAfrica 西非聚合（90+ 非洲媒体汇总）</li>
+  <li>马里：Studio Tamani · Mali Actu</li>
+  <li>布基纳法索：Lefaso.net · Burkina24 · Journal du Faso · Le Pays</li>
+  <li>尼日尔：Le Sahel（国家官方日报） · Niger Inter</li>
+  <li>乍得：Alwihda Info · Tchadinfos</li>
+  <li>塞内加尔：Le Soleil（国家官方日报）</li>
+</ul>
+
+<p style="font-size:0.9em;color:#6b7280">想加源 / 减源？直接编辑 <code>sources.json</code>，详见 <a href="HOW_TO_ADD_SOURCES.md" style="color:#2563eb">HOW_TO_ADD_SOURCES.md</a>。</p>
+
+<h2>推送通知</h2>
+<p>支持 9 种渠道自动推送到你的手机 / 聊天软件：</p>
+<ul>
+  <li><strong>微信</strong>：Server酱 · PushPlus</li>
+  <li><strong>企业办公</strong>：企业微信群机器人 · 钉钉群机器人 · 飞书机器人</li>
+  <li><strong>国外</strong>：Discord · Telegram · Bark (iOS)</li>
+  <li><strong>邮件</strong>：任意 SMTP（QQ / 163 / Gmail 都行）</li>
+</ul>
+<p>详见 <a href="HOW_TO_SETUP_PUSH.md" style="color:#2563eb">HOW_TO_SETUP_PUSH.md</a>。</p>
 
 <h2>关注议题</h2>
 <ul>
