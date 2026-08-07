@@ -6,21 +6,10 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from html import unescape
 
-# 新闻源配置
-SOURCES = {
-    "国际": [
-        ("BBC World", "http://feeds.bbci.co.uk/news/world/rss.xml"),
-        ("Reuters World", "https://feeds.reuters.com/Reuters/worldNews"),
-        ("NYT World", "https://rss.nytimes.com/services/xml/rss/nyt/World.xml"),
-    ],
-    "科技": [
-        ("TechCrunch", "https://techcrunch.com/feed/"),
-        ("The Verge", "https://www.theverge.com/rss/index.xml"),
-    ],
-}
-
-MAX_PER_SOURCE = 8  # 每个源最多取多少条
-HOURS_WINDOW = 24    # 抓最近多少小时
+ROOT = Path(__file__).parent.parent
+SOURCES_FILE = ROOT / "sources.json"
+DEFAULT_MAX_PER_SOURCE = 8
+HOURS_WINDOW = 24
 
 
 def clean_html(text: str) -> str:
@@ -45,7 +34,21 @@ def parse_date(entry) -> datetime | None:
     return None
 
 
-def fetch_source(name: str, url: str, cutoff: datetime) -> list[dict]:
+def load_sources() -> dict:
+    """加载源配置"""
+    if not SOURCES_FILE.exists():
+        print(f"[WARN] {SOURCES_FILE} 不存在，使用默认源")
+        return {
+            "国际": [
+                {"name": "BBC World", "url": "http://feeds.bbci.co.uk/news/world/rss.xml"},
+            ],
+        }
+    data = json.loads(SOURCES_FILE.read_text(encoding="utf-8"))
+    # 过滤掉以 _ 开头的元数据键
+    return {k: v for k, v in data.items() if not k.startswith("_")}
+
+
+def fetch_source(name: str, url: str, cutoff: datetime, max_items: int) -> list[dict]:
     """抓取单个源"""
     print(f"  [{name}] {url}")
     try:
@@ -55,7 +58,7 @@ def fetch_source(name: str, url: str, cutoff: datetime) -> list[dict]:
         return []
 
     items = []
-    for entry in feed.entries[:MAX_PER_SOURCE * 2]:
+    for entry in feed.entries[:max_items * 2]:
         pub = parse_date(entry)
         if pub and pub < cutoff:
             continue  # 太旧
@@ -66,7 +69,7 @@ def fetch_source(name: str, url: str, cutoff: datetime) -> list[dict]:
             "published": pub.isoformat() if pub else None,
             "source": name,
         })
-        if len(items) >= MAX_PER_SOURCE:
+        if len(items) >= max_items:
             break
 
     print(f"    -> {len(items)} items")
@@ -76,13 +79,18 @@ def fetch_source(name: str, url: str, cutoff: datetime) -> list[dict]:
 def main():
     now = datetime.now(timezone.utc)
     cutoff = now - timedelta(hours=HOURS_WINDOW)
+    sources = load_sources()
     print(f"Fetching news since {cutoff.isoformat()}")
+    print(f"Sources loaded: {sum(len(v) for v in sources.values())} feeds in {len(sources)} categories\n")
 
     by_category: dict[str, list[dict]] = {}
-    for category, sources in SOURCES.items():
+    for category, feeds in sources.items():
         by_category[category] = []
-        for name, url in sources:
-            by_category[category].extend(fetch_source(name, url, cutoff))
+        for feed in feeds:
+            name = feed["name"]
+            url = feed["url"]
+            max_items = feed.get("max_items", DEFAULT_MAX_PER_SOURCE)
+            by_category[category].extend(fetch_source(name, url, cutoff, max_items))
 
     out_dir = Path(__file__).parent.parent / "content"
     out_dir.mkdir(parents=True, exist_ok=True)

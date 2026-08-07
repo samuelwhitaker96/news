@@ -1,0 +1,49 @@
+{
+  "_说明": "编辑这个文件加/删新闻源。改完在 GitHub Desktop 点 Commit → Push 即可，下次定时任务自动生效。",
+  "_格式": "每个分类下面是一个列表，每项要有 name（来源名）和 url（RSS 地址），可选 description（描述）和 max_items（最多取多少条）",
+
+  "国际": [
+    {
+      "name": "BBC World",
+      "url": "http://feeds.bbci.co.uk/news/world/rss.xml",
+      "description": "BBC 国际新闻"
+    },
+    {
+      "name": "NYT World",
+      "url": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+      "description": "纽约时报国际版"
+    },
+    {
+      "name": "NYT Asia Pacific",
+      "url": "https://rss.nytimes.com/services/xml/rss/nyt/AsiaPacific",
+      "description": "纽约时报亚太版"
+    }
+  ],
+
+  "科技": [
+    {
+      "name": "TechCrunch",
+      "url": "https://techcrunch.com/feed/",
+      "description": "美国科技媒体"
+    },
+    {
+      "name": "The Verge",
+      "url": "https://www.theverge.com/rss/index.xml",
+      "description": "科技/消费电子"
+    },
+    {
+      "name": "Hacker News",
+      "url": "https://hnrss.org/frontpage",
+      "description": "技术社区热门",
+      "max_items": 10
+    }
+  ],
+
+  "财经": [
+    {
+      "name": "Financial Times",
+      "url": "https://www.ft.com/rss/home",
+      "description": "FT 主页"
+    }
+  ]
+}
